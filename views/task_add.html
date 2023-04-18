@@ -1,0 +1,12 @@
+{{ template "header" . }}
+<h2>タスクを登録する</h2>
+<ul>
+    <li>
+        <form action="/register_add" method="POST">
+                <label for="title">タイトル:</label>
+                <input class="form" type="text" name="title">
+                <input class="button" type="submit" value="タスクを作成">
+        </form>
+    </li>
+</ul>
+{{ template "footer" }}

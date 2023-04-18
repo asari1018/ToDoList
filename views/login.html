@@ -1,0 +1,25 @@
+{{ template "header2" . }}
+
+<div>
+<h2>TODO List Login</h2>
+<ul>
+    <form action="/certify" method="POST">
+    <li>
+            <label for="name">アカウント名:</label>
+            <input  class="form" type="text" name="name">
+    </li>
+    <li>
+            <label for="password">　パスワード:</label>
+            <input  class="form" type="text" name="password">
+            <input class="button" type="submit" value="ログイン">
+    </li>
+    <li>
+        <a class="warn">{{ .Info }}</a>
+    <li>
+            <a href="/first" class="button">アカウントを新規作成</a>
+    </li>
+    </form>
+</ul>
+</div>
+{{ template "footer" }}
+

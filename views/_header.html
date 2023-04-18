@@ -1,0 +1,21 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Title }} | todolist.go</title>
+    <link rel="stylesheet" type="text/css" href="../assets/style.css" />
+    <script type="text/javascript" src="../assets/script.js"></script>
+</head>
+<header>
+    <h1><a href="/list">TO DO LIST</a></h1>
+    <nav class="pc-nav">
+        <ul  class="wide">
+            <li><a href="/edit_user">USER INFO</a></li>
+            <li><a href="/logout">LOG OUT</a></li>
+            <li><a href="/task_add">+</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+{{ end }}

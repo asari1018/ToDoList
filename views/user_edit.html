@@ -1,0 +1,25 @@
+{{ template "header" . }}
+<div>
+    <h2>ユーザー情報を編集する</h2>
+    <ul>
+        <li>
+            <form action="/edit_username" method="POST">
+                        <label for="name">新しいユーザー名:</label>
+                        <input class="form" type="text" name="name">
+                        <input class="button" type="submit" value="ユーザー名を変更">
+                    </form>
+        </li>
+        <li>
+            <form action="/edit_password" method="POST">
+                        <label for="password">新しいパスワード:</label>
+                        <input class="form" type="text" name="password">
+                        <input class="button" type="submit" value="パスワードを変更">
+                    </form>
+        </li>
+        <li>
+            <a href="/delete_user" class="button">アカウント消去</a>
+        </li>
+    </ul>
+</div>
+
+{{ template "footer" }}

@@ -1,0 +1,52 @@
+{{ template "header" . }}
+<h2>タスクを編集する</h2>
+
+<table>
+    <tr>
+        <th>タイトル</th>
+        <th>登録日</th>
+        <th>状態</th>
+    </tr>
+    <tr>
+        <td>{{ .task.Title }}</td>
+        <td>{{ .task.CreatedAt }}</td>
+        <td>{{ if .task.IsDone }}済{{ end }}</td>
+    </tr>
+</table>
+
+<ul>
+    <li>
+        {{ if .task.IsDone }}
+        <form action="/task_toFalse" method="POST">
+            <input class="button" type="submit" value="タスクを未完にする">
+            <input type="hidden" name="id" value="{{ .task.ID }}">
+        </form>
+        {{ else }}
+        <form action="/task_toTrue" method="POST">
+            <input class="button" type="submit" value="タスクを済にする">
+            <input type="hidden" name="id" value="{{ .task.ID }}">
+        </form>
+        {{ end }}
+        <br>
+    </li>
+
+    <form action="/task_newTitle" method="POST">
+        <li>
+        <label for="title">新しいタイトル:</label>
+        <input class="form" type="text" name="title">
+        </li>
+        <li>
+        <input class="button" type="submit" value="タイトルを変更する">
+        <input type="hidden" name="id" value="{{ .task.ID }}">
+        </li>
+    </form>
+
+    <li>
+        <form action="/task_delete" method="POST">
+            <input class="button" type="submit" value="タスクを削除する">
+            <input type="hidden" name="id" value="{{ .task.ID }}">
+        </form>
+    </li>
+</ul>
+
+{{ template "footer" }}

@@ -1,0 +1,31 @@
+{{ template "header" . }}
+<h2>タスク一覧</h2>
+{{ if not .Tasks }}
+<ul>
+<li>
+<a>登録データがありません．</a>
+</li>
+</ul>
+{{ else }}
+
+<ul class="wide">
+    <li><a href="/list">すべて</a></li>
+    <li><a href="/false_list">未完了</a></li>
+    <li><a href="/true_list">完了済</a></li>
+</ul>
+<table>
+    <tr>
+        <th>タイトル</th>
+        <th>登録日</th>
+        <th>状態</th>
+    </tr>
+    {{ range $task := .Tasks }}
+    <tr>
+        <td><a href="/task/{{ $task.ID }}">{{ $task.Title }}</a></td> 
+        <td>{{ $task.CreatedAt }}</td>
+        <td>{{ if $task.IsDone }}済{{ end }}</td>
+    </tr>
+    {{ end }}
+</table>
+{{ end }}
+{{ template "footer" }}

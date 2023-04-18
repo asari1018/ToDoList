@@ -1,0 +1,25 @@
+{{ template "header2" . }}
+
+<div>
+<h2>TODO List へようこそ！</h2>
+
+<ul>
+        <form action="/new_account" method="POST">
+        <li>
+                <label for="name">アカウント名:</label>
+                <input class="form" type="text" name="name">
+        </li>
+        <il>
+                <label for="password">　　パスワード:</label>
+                <input  class="form" type="text" name="password">
+        </li>
+        <li>
+                <a class="warn">{{ .Info }}</a>
+        </li>
+        <li>
+                <input class="button" type="submit" value="新規作成">
+        </li>
+        </form>
+</ul>
+</div>
+{{ template "footer" }}
